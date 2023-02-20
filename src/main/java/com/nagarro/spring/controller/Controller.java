@@ -1,5 +1,8 @@
 package com.nagarro.spring.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,33 +13,13 @@ public class Controller {
 
 	
 	@GetMapping("/api")
-	public String getString () {
-		return 
-		"[
-    {
-        "id": 1,
-        "firstName": "Aman",
-        "lastName": "Singh",
-        "exp": 3,
-        "dept": "IT",
-        "salary": 1000
-    },
-    {
-        "id": 2,
-        "firstName": "Naman",
-        "lastName": "Singh",
-        "exp": 5,
-        "dept": "Sales",
-        "salary": 4000
-    },
-    {
-        "id": 3,
-        "firstName": "Chaman",
-        "lastName": "Singh",
-        "exp": 4,
-        "dept": "Management",
-        "salary": 5000
-    }
-]";
+	public  List getString () {
+		
+		List ls= new ArrayList();
+		ls.add(new Employee(1,"Aman","Singh",3,"IT",10000));
+		ls.add(new Employee(1,"Naman","Singh",5,"Sales",4000));
+		ls.add(new Employee(1,"Chaman","Singh",3,"Management",6000));
+		
+		return ls;
 	}
 }
