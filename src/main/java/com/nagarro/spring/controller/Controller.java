@@ -10,16 +10,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping
 public class Controller {
-
+List ls= new ArrayList();
 	
-	@GetMapping("/api")
-	public  List getString () {
-		
-		List ls= new ArrayList();
-		ls.add(new Employee(1,"Aman","Singh",3,"IT",10000));
-		ls.add(new Employee(1,"Naman","Singh",5,"Sales",4000));
-		ls.add(new Employee(1,"Chaman","Singh",3,"Management",6000));
-		
+	
+	@PostMapping("/addEmployee")
+	public Employee addEmployee(@RequestBody Employee emp) {
+		Employee employee = new Employee(emp.getId(),emp.getFirstName(),emp.getLastName(),emp.getExp(),emp.getDept(),emp.getSalary());
+		ls.add(employee);
+		return(employee);
+	}
+	
+	@GetMapping("/getEmployee")
+	public  List getEmployee () {
 		return ls;
 	}
 }
+
+}
+
